@@ -1,0 +1,29 @@
+# NeoPixel Lanterns
+version: '3'
+services:
+  nginx:
+    image: nginx:1.15-alpine
+    networks:
+      - lantern_net
+    volumes:
+    - "./:/etc/nginx/conf.d"
+    restart: always
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "10"
+  lantern_server:
+    image: lanterns:0.1.0
+    networks:
+      - lantern_net
+    ports:
+      - "80:8000"
+    privileged: true
+    restart: always
+    logging:
+      driver: "json-file"                                                                                                                                                                                                                                                                                                          options:                                                                                                                                                                                                                                                                                                                       max-size: "500k"                                                                                                                                                                                                                                                                                                             max-file: "10"
+
+networks:
+  lantern_net:
