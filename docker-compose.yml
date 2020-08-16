@@ -15,7 +15,7 @@ services:
         max-size: "500k"
         max-file: "10"
   lantern_server:
-    image: lanterns:0.1.0
+    image: lanterns:0.3.1
     networks:
       - lantern_net
     ports:
@@ -23,7 +23,10 @@ services:
     privileged: true
     restart: always
     logging:
-      driver: "json-file"                                                                                                                                                                                                                                                                                                          options:                                                                                                                                                                                                                                                                                                                       max-size: "500k"                                                                                                                                                                                                                                                                                                             max-file: "10"
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "10"
 
 networks:
   lantern_net:

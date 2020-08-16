@@ -6,9 +6,11 @@ RUN apt-get -y update
 
 RUN apt-get -y upgrade
 
-RUN apt-get install -y python3 python3-pip
+RUN apt-get update & apt-get install -y python3-dev python3-pip
 
-RUN pip3 install flask rpi_ws281x adafruit-circuitpython-neopixel RPi.GPIO
+RUN apt-get -y update
+
+RUN pip3 install Cython flask rpi_ws281x adafruit-circuitpython-neopixel RPi.GPIO numpy
 
 RUN python3 -m pip install --force-reinstall adafruit-blinka
 
